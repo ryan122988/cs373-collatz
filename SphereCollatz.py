@@ -51,15 +51,15 @@ def collatz_cycle_length(i) :
     x = i
     while x > 1:
         if  1 < x <= 10000:
-            cycleLen = cycleLen + cache1[x-1];
-            cycleLen = cycleLen - 1;
-            return cycleLen;
+            cycleLen = cycleLen + cache1[x-1]
+            cycleLen = cycleLen - 1
+            return cycleLen
         if x%2 == 0:
             x = x/2
-            ++cycleLen
+            cycleLen += 1
         else:
             x = (x*3)+1
-            ++cycleLen
+            cycleLen += 1
     return cycleLen
 
 
@@ -80,22 +80,22 @@ def collatz_eval (i, j) :
     maxCycleLen = -1
     if j > i:
         y = i
-       # m = j/2
-        #if m >= i:
-        #    y=m
+        m = j/2
+        if m >= i:
+            y=m
         while (y <=j) :
             temp = collatz_cycle_length(y)
-            ++y
+            y += 1
             if temp > maxCycleLen :
                 maxCycleLen = temp
     else:
         y = j
-       # m = i/2
-       # if m > j:
-         #   y = m
+        m = i/2
+        if m > j:
+            y = m
         while y <= i :
             temp = collatz_cycle_length(y)
-            ++y
+            y += 1
             if temp > maxCycleLen :
                 maxCycleLen = temp
     # <end my code>
